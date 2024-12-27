@@ -55,6 +55,24 @@ export const useAuth = create((set) => ({
         } finally{
             set({ isLoggingIn: false })
         }
+    },
+
+    updateProfile: async(data) => {
+        set({ isUpdatingProfile: true })
+        try {
+            console.log("Data being sent:", data);
+            
+            const res = await axiosInstance.put("/auth/update-profile", data)
+            console.log("APi response:", res);
+            
+            set({authUser: res.data})
+            toast.success("Profile updated successfully")
+        } catch (error) {
+            console.log("error in update profile:", error);
+            toast.error(error.response.data.message)
+        } finally{
+            set({ isUpdatingProfile: false})
+        }
     }
 })
 )
