@@ -79,7 +79,7 @@ export const logout = (req, res) => {
         res.cookie("jwt", "", {maxAge:0})
         res.status(200).json({ message: "Logged out successfully"})
     } catch(error){
-        console.log("Error in login controller", error.message);
+        console.log("Error in logout controller", error.message);
         res.status(500).json({ message: "Internal Server Error"}) 
     }
 }
@@ -87,14 +87,14 @@ export const logout = (req, res) => {
 export const updateProfile = async (req, res) => {
     try {
         const {profilePic} = req.body
-        const userID = req.user._id
+        const userId = req.user._id
 
         if(!profilePic){
             return res.status(400).json({message: "Profile pic is required" })
         }
 
         const uploadResponse = await cloudinary.uploader.upload(profilePic)
-        const updatedUser = await User.findByIdAndUpdate( userID, {profilePic:uploadResponse.secure_url}, {new:true} )
+        const updatedUser = await User.findByIdAndUpdate( userId, {profilePic:uploadResponse.secure_url}, {new:true} )
 
         res.status(200).json(updatedUser)
 
