@@ -13,7 +13,7 @@ const SignUpPage = () => {
     password:""
   })
 
-  const { signUp, isSigningUp} = useAuth()
+  const { signup, isSigningUp} = useAuth()
 
   const validateForm = () => {
     if(!formData.fullName.trim()) return toast.error("Full name is required")
@@ -30,7 +30,7 @@ const SignUpPage = () => {
     const success = validateForm()
 
     if(success === true){
-        signUp(formData)
+        signup(formData)
     }
   }
 
