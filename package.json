@@ -1,0 +1,14 @@
+{
+  "name": "chatchat",
+  "version": "1.0.0",
+  "description": "This repository hosts a **full-stack realtime chat application** built using the MERN stack (MongoDB, ExpressJS, ReactJS, Node.js) with **Socket.IO** for real-time communication. The application features a responsive and intuitive frontend designed with **ReactJS** and styled using **TailwindCSS**. The backend is powered by **ExpressJS** and integrates **MongoDB** for database management. **Postman** was used extensively for API testing during development.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "npm run start --prefix backend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+ 
